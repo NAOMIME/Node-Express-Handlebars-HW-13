@@ -19,13 +19,12 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.create([
-    "burger_name", "devoured"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function(result) {
+  burger.create (
+    req.body.burger_name, 
+   function(result) {
     // Send back the ID of the new burger
-    res.json({ id: result.insertId });
+   console.log(result);
+   res.redirect("/");
   });
 });
 
